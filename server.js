@@ -1,9 +1,8 @@
-// server.js
-// where your node app starts
-
-// init project
+const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
+
+const healthController = require('./controllers/health');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -21,6 +20,7 @@ app.get('/', (request, response) => {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.use('/api/health', healthController);
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
