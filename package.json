@@ -7,6 +7,7 @@
     "start": "node -r dotenv/config server.js"
   },
   "dependencies": {
+    "ajv": "^6.12.5",
     "body-parser": "1.19.0",
     "dayjs": "^1.9.1",
     "dotenv": "8.2.0",

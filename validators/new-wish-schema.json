@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "http://example.com/santa-app/schemas/new-wish-schema.json",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "wish": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "username",
+    "wish"
+  ]
+}
