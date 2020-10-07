@@ -26,8 +26,16 @@ const UserProfile = {};
  */
 const UserRecord = {};
 
+/**
+ * @typedef {object} Wish
+ * @property {string} username Username.
+ * @property {string} wish Wish content.
+ */
+const Wish = {};
+
 module.exports = {
   User,
   UserProfile,
-  UserRecord
+  UserRecord,
+  Wish
 };

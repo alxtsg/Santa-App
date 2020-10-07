@@ -3,14 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 
 const healthController = require('./controllers/health');
+const wishController = require('./controllers/wish');
+
 const app = express();
-const bodyParser = require('body-parser');
 
 app.use(bodyParser());
 app.use(morgan());
-
-// we've started you off with Express,
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -21,6 +19,8 @@ app.get('/', (request, response) => {
 });
 
 app.use('/api/health', healthController);
+app.use('/api/wishes', wishController);
+
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
