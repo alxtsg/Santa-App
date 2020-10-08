@@ -19,7 +19,8 @@ dayjs.extend(customParseFormat);
  * @throws {Error} When unable to create the wish.
  */
 const createWish = async (wish) => {
-
+  const userRecords = await userServices.getUserRecords();
+  console.log(userRecords);
 };
 
 module.exports = {
