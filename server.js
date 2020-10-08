@@ -18,8 +18,8 @@ app.get('/', (request, response) => {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.use('/api/health', healthController);
-app.use('/api/wishes', wishController);
+app.use('/health', healthController);
+app.use('/wishes', wishController);
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000, function () {

@@ -10,13 +10,13 @@ router.get('/', (request, response) => {
   if (!isOk) {
     response.status(commonController.HTTP_STATUS.INTERNAL_SERVER_ERROR)
       .json({
-        error: 'API is down!'
+        error: 'The application is experiencing problems.'
       });
     return;
   }
   response.status(commonController.HTTP_STATUS.OK)
     .json({
-      data: 'API is ready.'
+      data: 'The application is ready.'
     });
   return;
 });
