@@ -37,7 +37,12 @@ const loadTemplates = async () => {
   }
 };
 
-const renderError = (error) => mustache.render(TEMPLATES.ERROR, error.message);
+const renderError = (error) => mustache.render(
+  TEMPLATES.ERROR,
+  {
+    message: error.message
+  }
+);
 
 loadTemplates();
 
