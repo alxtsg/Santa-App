@@ -13,7 +13,7 @@ const User = {};
  * @typedef {object} UserProfile
  * @property {string} userUid User ID.
  * @property {string} address User address.
- * @property {string} birthday User's birthday, in YYYY/MM/DD format.
+ * @property {string} birthdate User's birthdate, in YYYY/DD/MM format.
  */
 const UserProfile = {};
 
@@ -22,7 +22,7 @@ const UserProfile = {};
  * @property {string} userUid User ID.
  * @property {string} username Username.
  * @property {string} address User address.
- * @property {string} birthday User's birthday, in YYYY/MM/DD format.
+ * @property {string} birthdate User's birthdate, in YYYY/DD/MM format.
  */
 const UserRecord = {};
 
