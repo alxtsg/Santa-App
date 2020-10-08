@@ -23,8 +23,12 @@ const createWish = async (wish) => {
   if (!wishValidator.isValidNewWish(wish)) {
     throw new Error('Invalid wish.');
   }
-  const userRecords = await userServices.getUserRecords();
-  console.log(userRecords);
+  const records = await userServices.getUserRecords();
+  const isUserFound = records.some((user) => (user.username === wish.username));
+  if (!isUserFound) {
+    throw new Error('User not found.');
+  }
+  console.log(records);
 };
 
 module.exports = {
