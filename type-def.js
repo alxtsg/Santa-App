@@ -3,6 +3,18 @@
  */
 
 /**
+ * @typedef {object} Config
+ * @property {string} web Path of web front-end directory.
+ * @property {number} port Port number listened by the application.
+ * @property {object} templates Page templates.
+ * @property {string} templates.error Path of error page template.
+ * @property {string} templates.success Path of success page template.
+ * @property {number} sendWishInterval Interval of sending wishes.
+ * @property {number} maxEligibleAge Maximum eligible age for making a new wish.
+ */
+const Config = {};
+
+/**
  * @typedef {object} User
  * @property {string} username Username.
  * @property {string} uid User ID.
@@ -48,6 +60,7 @@ const WishState = null;
 const WishRecord = {};
 
 module.exports = {
+  Config,
   User,
   UserProfile,
   UserRecord,
