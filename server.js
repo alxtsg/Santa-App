@@ -8,7 +8,7 @@ const wishController = require('./controllers/wish');
 
 const app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded());
 app.use(morgan());
 
 app.use(express.static(config.web));
