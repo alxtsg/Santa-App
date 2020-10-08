@@ -1,8 +1,10 @@
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 const dayjs = require('dayjs');
-const userServices = require('./user');
-const userModel = require('../models/user');
+
 const cache = require('../cache');
+const config = require('../config');
+const userModel = require('../models/user');
+const userServices = require('./user');
 const wishModel = require('../models/wish');
 const wishValidator = require('../validators/wish');
 
@@ -10,14 +12,12 @@ const wishValidator = require('../validators/wish');
  * @typedef {import('../type-def').Wish} Wish
  */
 
-const MIN_ELIGIBLE_AGE = 10;
-
 dayjs.extend(customParseFormat);
 
 const isEligible = (birthdate) => {
   const userBirthdate = dayjs(birthdate, userModel.BIRTHDATE_FORMAT);
   const now = dayjs();
-  return (now.diff(userBirthdate, 'year') < MIN_ELIGIBLE_AGE);
+  return (now.diff(userBirthdate, 'year') < config.maxEligibleAge);
 }
 
 /**

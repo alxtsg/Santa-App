@@ -10,7 +10,8 @@ const config = {
   templates: {
     error: null,
     success: null
-  }
+  },
+  maxEligibleAge: null
 };
 
 const DECIMAL_RADIX = 10;
@@ -26,5 +27,6 @@ config.web = envConfig.WEB;
 config.port = process.env.PORT || parseInt(envConfig.PORT, DECIMAL_RADIX);
 config.templates.error = envConfig.ERROR_PAGE_TEMPLATE;
 config.templates.success = envConfig.SUCCESS_PAGE_TEMPLATE;
+config.maxEligibleAge = parseInt(envConfig.MAX_ELIGIBLE_AGE, DECIMAL_RADIX);
 
 module.exports = config;
