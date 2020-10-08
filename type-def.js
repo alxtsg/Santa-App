@@ -29,7 +29,7 @@ const UserRecord = {};
 /**
  * @typedef {object} Wish
  * @property {string} username Username.
- * @property {string} wish Wish content.
+ * @property {string} content Wish content.
  */
 const Wish = {};
 
