@@ -2,10 +2,11 @@ const customParseFormat = require('dayjs/plugin/customParseFormat')
 const dayjs = require('dayjs');
 const userServices = require('./user');
 const userModel = require('../models/user');
+const cache = require('../cache');
+const wishModel = require('../models/wish');
 const wishValidator = require('../validators/wish');
 
 /**
- * @typedef {import('../type-def').UserRecord} UserRecord
  * @typedef {import('../type-def').Wish} Wish
  */
 
@@ -39,8 +40,20 @@ const createWish = async (wish) => {
   if (!isEligible(record.birthdate)) {
     throw new Error(`${wish.username} is no longer eligible.`);
   }
+  cache.wishesCache.push({
+    username: wish.username,
+    address: record.address,
+    content: wish.content,
+    state: wishModel.STATES.PENDING
+  });
+  console.log(cache.wishesCache);
 };
 
+const getPendingWishes = () => cache.wishesCache.filter((item) =>
+  (item.state === wishModel.STATES.PENDING)
+);
+
 module.exports = {
-  createWish
+  createWish,
+  getPendingWishes
 };

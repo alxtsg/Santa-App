@@ -33,9 +33,25 @@ const UserRecord = {};
  */
 const Wish = {};
 
+/**
+ * @typedef {'pending'|'sent'} WishState
+ */
+const WishState = null;
+
+/**
+ * @typedef {object} WishRecord
+ * @property {string} username Username.
+ * @property {string} address User address.
+ * @property {string} content Wish content.
+ * @property {WishState} state Wish state.
+ */
+const WishRecord = {};
+
 module.exports = {
   User,
   UserProfile,
   UserRecord,
-  Wish
+  Wish,
+  WishState,
+  WishRecord
 };
