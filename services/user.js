@@ -34,15 +34,20 @@ const getUserProfiles = async () => {
  * @returns {UserRecord[]} An array of user records.
  */
 const getUserRecords = async () => {
-  const users = await getUsers();
-  const userProfiles = await getUserProfiles();
-  return userProfiles.map((profile) => {
-    const user = users.find(user => (user.uid === profile.userUid));
-    return {
-      ...profile,
-      username: user.username
-    };
-  });
+  try {
+    const users = await getUsers();
+    const userProfiles = await getUserProfiles();
+    return userProfiles.map((profile) => {
+      const user = users.find(user => (user.uid === profile.userUid));
+      return {
+        ...profile,
+        username: user.username
+      };
+    });
+  } catch (error) {
+    console.error(error);
+    throw new Error('Unable to load user profiles.');
+  }
 };
 
 module.exports = {
