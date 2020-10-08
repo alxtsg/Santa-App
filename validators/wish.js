@@ -1,6 +1,8 @@
-const ajv = require('ajv');
+const Ajv = require('ajv');
 
 const newWishSchema = require('./new-wish-schema.json');
+
+const ajv = new Ajv();
 
 const newWishValidation = ajv.compile(newWishSchema);
 

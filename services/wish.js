@@ -1,6 +1,7 @@
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 const dayjs = require('dayjs');
 const userServices = require('./user');
+const wishValidator = require('../validators/wish');
 
 /**
  * @typedef {import('../type-def').UserRecord} UserRecord
@@ -19,6 +20,9 @@ dayjs.extend(customParseFormat);
  * @throws {Error} When unable to create the wish.
  */
 const createWish = async (wish) => {
+  if (!wishValidator.isValidNewWish(wish)) {
+    throw new Error('Invalid wish.');
+  }
   const userRecords = await userServices.getUserRecords();
   console.log(userRecords);
 };
