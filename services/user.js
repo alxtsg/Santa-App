@@ -50,6 +50,24 @@ const getUserRecords = async () => {
   }
 };
 
+/**
+ * Gets a user record by username.
+ *
+ * @param {string} username Username of the user.
+ *
+ * @returns {UserRecord|null} The matching user record, or null if no matchin
+ *                            record can be found.
+ */
+const getUserRecordByUsername = async (username) => {
+  const records = await getUserRecords();
+  console.log(records);
+  const user = records.find((user) => (user.username === username));
+  if (!user) {
+    return null;
+  }
+  return user;
+};
+
 module.exports = {
-  getUserRecords
+  getUserRecordByUsername,
 };
