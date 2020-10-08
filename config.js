@@ -6,7 +6,11 @@ const envFile = path.join(__dirname, '.env');
 
 const config = {
   web: null,
-  port: null
+  port: null,
+  templates: {
+    error: null,
+    success: null
+  }
 };
 
 const DECIMAL_RADIX = 10;
@@ -20,5 +24,7 @@ if (result.error !== undefined) {
 const envConfig = result.parsed;
 config.web = envConfig.WEB;
 config.port = process.env.PORT || parseInt(envConfig.PORT, DECIMAL_RADIX);
+config.templates.error = envConfig.ERROR_PAGE_TEMPLATE;
+config.templates.success = envConfig.SUCCESS_PAGE_TEMPLATE;
 
 module.exports = config;
