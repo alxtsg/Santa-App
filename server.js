@@ -6,7 +6,7 @@ const config = require('./config');
 const healthController = require('./controllers/health');
 const wishController = require('./controllers/wish');
 
-const sendWishScheduler = require('./schedules/send-wish');
+const sendWishScheduler = require('./schedulers/send-wish');
 
 const app = express();
 
