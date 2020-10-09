@@ -10,7 +10,9 @@ const sendWishScheduler = require('./schedules/send-wish');
 
 const app = express();
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(morgan());
 
 app.use(express.static(config.web));
