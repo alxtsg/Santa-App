@@ -4,9 +4,8 @@ const morgan = require('morgan');
 
 const config = require('./config');
 const healthController = require('./controllers/health');
-const wishController = require('./controllers/wish');
-
 const sendWishScheduler = require('./schedulers/send-wish');
+const wishController = require('./controllers/wish');
 
 const app = express();
 
