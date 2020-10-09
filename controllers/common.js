@@ -1,10 +1,7 @@
 const mustache = require('mustache');
 
-const fs = require('fs');
-
 const config = require('../config');
-
-const fsPromise = fs.promises;
+const templateLoader = require('../utils/template-loader');
 
 const HTTP_STATUS = {
   OK: 200,
@@ -17,24 +14,8 @@ const TEMPLATES = {
 };
 
 const loadTemplates = async () => {
-  try {
-    const loadOptions = {
-      encoding: 'utf8'
-    };
-    TEMPLATES.ERROR = await fsPromise.readFile(
-      config.templates.error,
-      loadOptions
-    );
-    TEMPLATES.SUCCESS = await fsPromise.readFile(
-      config.templates.success,
-      loadOptions
-    );
-    // Pre-parse the templates to speed up the rendering later.
-    mustache.parse(TEMPLATES.ERROR);
-    mustache.parse(TEMPLATES.SUCCESS);
-  } catch (error) {
-    throw new Error(`Unable to load template(s): ${error.message}`);
-  }
+  TEMPLATES.ERROR = await templateLoader.load(config.templates.error);
+  TEMPLATES.SUCCESS = await templateLoader.load(config.templates.success);
 };
 
 const renderError = (error) => mustache.render(

@@ -6,10 +6,18 @@
  * @typedef {object} Config
  * @property {string} web Path of web front-end directory.
  * @property {number} port Port number listened by the application.
+ * @property {object} smtp SMTP configurations.
+ * @property {string} smtp.host SMTP server host.
+ * @property {number} smtp.port SMTP server port.
+ * @property {string} smtp.user SMTP server username.
+ * @property {string} smtp.password SMTP server user password.
  * @property {object} templates Page templates.
  * @property {string} templates.error Path of error page template.
  * @property {string} templates.success Path of success page template.
+ * @property {string} templates.wishMail Path of wish mail template.
  * @property {number} sendWishInterval Interval of sending wishes.
+ * @property {string} wishMailSender E-mail address of wish mail sender.
+ * @property {string} wishMailReceiver E-mail address of wish mail receiver.
  * @property {number} maxEligibleAge Maximum eligible age for making a new wish.
  */
 const Config = {};
