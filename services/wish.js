@@ -46,7 +46,6 @@ const createWish = async (wish) => {
     content: wish.content,
     state: wishModel.STATES.PENDING
   });
-  console.log(cache.wishesCache);
 };
 
 const getPendingWishes = () => cache.wishesCache.filter((item) =>

@@ -60,7 +60,6 @@ const getUserRecords = async () => {
  */
 const getUserRecordByUsername = async (username) => {
   const records = await getUserRecords();
-  console.log(records);
   const user = records.find((user) => (user.username === username));
   if (!user) {
     return null;

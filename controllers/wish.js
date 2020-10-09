@@ -7,7 +7,6 @@ const wishService = require('../services/wish');
 const router = express.Router();
 
 router.post('/', async (request, response) => {
-  console.log(request.body);
   try {
     await wishService.createWish(request.body);
     const responseContent = mustache.render(
