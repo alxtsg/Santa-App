@@ -1,15 +1,15 @@
+const MAX_CONTENT_LENGTH = 100;
 
-// client-side js
-// run by the browser each time your view template is loaded
+const santaForm = document.getElementById('santaForm');
+const contentError = document.getElementById('contentError');
 
-console.log('hello world :o');
-
-
-// define variables that reference elements on our page
-const santaForm = document.forms[0];
-
-// listen for the form to be submitted and add a new dream when it is
-santaForm.onsubmit = function (event) {
-  // TODO: check the text isn't more than 100chars before submitting
-  // event.preventDefault();
+santaForm.onsubmit = () => {
+  // If the browser does not support maxlength attribute on <textarea> element,
+  // show the error if the wish content is too long.
+  contentError.style.display = 'none';
+  const wishContent = santaForm.elements.content.value;
+  if (wishContent.length > MAX_CONTENT_LENGTH) {
+    contentError.style.display = 'block';
+    return false;
+  }
 };
